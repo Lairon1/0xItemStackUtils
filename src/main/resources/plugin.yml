@@ -1,0 +1,7 @@
+name: 0xItemStackUtils
+version: '${project.version}'
+main: com.lairon.plugins.xitemstackutils.ItemStackUtils
+api-version: 1.16
+authors: [ 0xLairon1 ]
+description: Упрощает работу с предметами
+website: minecraft.ru
