@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.lairon.plugins</groupId>
+  <artifactId>0xItemStackUtils</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20221111104458</lastUpdated>
+  </versioning>
+</metadata>
