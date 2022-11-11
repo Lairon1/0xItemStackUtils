@@ -19,7 +19,6 @@ import java.util.List;
 
 public final class ItemStackUtils extends JavaPlugin {
 
-    //DisplayName
     @NonNull
     public static ItemStack setDisplayName(@NonNull ItemStack stack, @NonNull Component displayName) {
         ItemMeta meta = stack.getItemMeta();
