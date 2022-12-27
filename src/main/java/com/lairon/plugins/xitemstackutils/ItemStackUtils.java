@@ -7,15 +7,19 @@ import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public final class ItemStackUtils extends JavaPlugin {
 
@@ -166,6 +170,16 @@ public final class ItemStackUtils extends JavaPlugin {
         meta.getPersistentDataContainer().remove(key);
         stack.setItemMeta(meta);
         return stack;
+    }
+
+    @NonNull
+    public static Map<String, Object> serialize(@NonNull ItemStack stack){
+        return ItemStackSerializerDeserializer.serialize(stack);
+    }
+
+    @NonNull
+    public static ItemStack deserialize(ConfigurationSection section){
+        return ItemStackSerializerDeserializer.deserialize(section);
     }
 
 }
