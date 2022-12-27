@@ -64,7 +64,7 @@ public class ItemStackSerializerDeserializer {
                         .filter(enchantment1 -> enchantment1.getKey().getKey().equalsIgnoreCase(split[0]))
                         .findFirst()
                         .orElse(Enchantment.DURABILITY);
-                int level = Integer.parseInt(split[0]);
+                int level = Integer.parseInt(split[1]);
                 ItemStackUtils.addEnchant(stack, enchantment, level);
             }
         }
