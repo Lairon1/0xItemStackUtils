@@ -19,11 +19,13 @@ public class ItemStackSerializerDeserializer {
     private static final String ENCHANTS = "Enchants";
     private static final String FLAGS = "ItemFlags";
     private static final String CUSTOM_MODEL_DATA = "CustomModelData";
+    private static final String AMOUNT = "Amount";
 
     @NonNull
     public static Map<String, Object> serialize(@NonNull ItemStack stack) {
         Map<String, Object> map = new HashMap<>();
         map.put(TYPE, stack.getType().name());
+        map.put(AMOUNT, stack.getAmount());
         if (stack.hasItemMeta()) {
             ItemMeta meta = stack.getItemMeta();
             if (meta.hasDisplayName())
@@ -80,6 +82,9 @@ public class ItemStackSerializerDeserializer {
         }
         if(section.contains(CUSTOM_MODEL_DATA)){
             ItemStackUtils.setCustomModelData(stack, section.getInt(CUSTOM_MODEL_DATA));
+        }
+        if(section.contains(AMOUNT)){
+            stack.setAmount(section.getInt(AMOUNT));
         }
         return stack;
     }
