@@ -18,6 +18,7 @@ public class ItemStackSerializerDeserializer {
     private static final String LORE = "Lore";
     private static final String ENCHANTS = "Enchants";
     private static final String FLAGS = "ItemFlags";
+    private static final String CUSTOM_MODEL_DATA = "CustomModelData";
 
     @NonNull
     public static Map<String, Object> serialize(@NonNull ItemStack stack) {
@@ -44,6 +45,9 @@ public class ItemStackSerializerDeserializer {
                     flags.add(itemFlag.name());
                 }
                 map.put(FLAGS, flags);
+            }
+            if(meta.hasCustomModelData()){
+                map.put(CUSTOM_MODEL_DATA, meta.getCustomModelData());
             }
         }
         return map;
@@ -73,6 +77,9 @@ public class ItemStackSerializerDeserializer {
             for (String flag : flags) {
                 ItemStackUtils.addItemFlags(stack, ItemFlag.valueOf(flag));
             }
+        }
+        if(section.contains(CUSTOM_MODEL_DATA)){
+            ItemStackUtils.setCustomModelData(stack, section.getInt(CUSTOM_MODEL_DATA));
         }
         return stack;
     }
