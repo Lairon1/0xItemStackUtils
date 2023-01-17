@@ -55,39 +55,7 @@ public class ItemStackSerializerDeserializer {
         return map;
     }
 
-    @NonNull
-    public static ItemStack deserialize(@NonNull ConfigurationSection section) {
-        ItemStack stack = new ItemStack(Material.valueOf(section.getString(TYPE, Material.STONE.name())));
-        if (section.contains(NAME))
-            ItemStackUtils.setDisplayName(stack, color(section.getString(NAME)));
-        if (section.contains(LORE))
-            ItemStackUtils.setLore(stack, color(section.getStringList(LORE)));
-        if (section.contains(ENCHANTS)) {
-            for (String ench : section.getStringList(ENCHANTS)) {
-                String[] split = ench.split(";");
-                Enchantment enchantment = Arrays.stream(Enchantment
-                                .values())
-                        .filter(enchantment1 -> enchantment1.getKey().getKey().equalsIgnoreCase(split[0]))
-                        .findFirst()
-                        .orElse(Enchantment.DURABILITY);
-                int level = Integer.parseInt(split[1]);
-                ItemStackUtils.addEnchant(stack, enchantment, level);
-            }
-        }
-        if(section.contains(FLAGS)){
-            List<String> flags = section.getStringList(FLAGS);
-            for (String flag : flags) {
-                ItemStackUtils.addItemFlags(stack, ItemFlag.valueOf(flag));
-            }
-        }
-        if(section.contains(CUSTOM_MODEL_DATA)){
-            ItemStackUtils.setCustomModelData(stack, section.getInt(CUSTOM_MODEL_DATA));
-        }
-        if(section.contains(AMOUNT)){
-            stack.setAmount(section.getInt(AMOUNT));
-        }
-        return stack;
-    }
+
 
     private static String color(String s) {
         return ChatColor.translateAlternateColorCodes('&', s);

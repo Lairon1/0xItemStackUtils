@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.lairon.plugins</groupId>
+  <artifactId>0xItemStackUtils</artifactId>
+  <version>1.5-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20230117.165506</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20230117165506</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.5-20230117.165506-1</value>
+        <updated>20230117165506</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.5-20230117.165506-1</value>
+        <updated>20230117165506</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

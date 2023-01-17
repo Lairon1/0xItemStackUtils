@@ -1,6 +1,8 @@
 package com.lairon.plugins.xitemstackutils;
 
 import com.google.common.collect.Multimap;
+import com.lairon.libs.xmessageutils.MessageUtils;
+import com.lairon.plugins.xitemstackutils.sd.deserializer.ItemStackDeserializer;
 import lombok.NonNull;
 import net.kyori.adventure.text.Component;
 import org.bukkit.ChatColor;
@@ -173,13 +175,27 @@ public final class ItemStackUtils extends JavaPlugin {
     }
 
     @NonNull
+    public static ItemStack applyColors(@NonNull ItemStack item) {
+        if (item.hasItemMeta()) {
+            ItemMeta meta = item.getItemMeta();
+            if (meta.hasDisplayName())
+                meta.setDisplayName(MessageUtils.applyColors(meta.getDisplayName()));
+            if(meta.hasLore())
+                meta.setLore(MessageUtils.applyColors(meta.getLore()));
+            item.setItemMeta(meta);
+        }
+        return item;
+    }
+
+
+    @NonNull
     public static Map<String, Object> serialize(@NonNull ItemStack stack){
         return ItemStackSerializerDeserializer.serialize(stack);
     }
 
     @NonNull
     public static ItemStack deserialize(ConfigurationSection section){
-        return ItemStackSerializerDeserializer.deserialize(section);
+        return new ItemStackDeserializer().deserialize(section);
     }
 
 }
