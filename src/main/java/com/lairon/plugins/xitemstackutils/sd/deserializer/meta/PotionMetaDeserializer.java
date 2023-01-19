@@ -74,9 +74,9 @@ public class PotionMetaDeserializer implements ItemMetaDeserializer {
     private void deserializeRGBColor(@NonNull PotionMeta potionMeta, @NonNull ConfigurationSection section) {
         if (!section.contains(RGB_COLOR)) return;
         String rgbColor = section.getString(RGB_COLOR);
-        String[] split = rgbColor.split(";");
+        String[] split = rgbColor.split(", ");
         if(split.length != 3)
-            throw new IllegalArgumentException(rgbColor + " is invalid RGB format. Use RRR;GGG;BBB. Use only integers");
+            throw new IllegalArgumentException(rgbColor + " is invalid RGB format. Use RRR, GGG, BBB. Use only integers");
 
         int r, g, b;
         try{
@@ -84,7 +84,7 @@ public class PotionMetaDeserializer implements ItemMetaDeserializer {
             g = Integer.parseInt(split[1]);
             b = Integer.parseInt(split[2]);
         }catch (Exception e){
-            throw new IllegalArgumentException(rgbColor + " is invalid RGB format. Use RRR;GGG;BBB. Use only integers");
+            throw new IllegalArgumentException(rgbColor + " is invalid RGB format. Use RRR, GGG, BBB. Use only integers");
         }
         potionMeta.setColor(Color.fromRGB(r, g, b));
     }
