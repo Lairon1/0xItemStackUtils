@@ -37,12 +37,9 @@ public class DefaultMetaDeserializer implements ItemMetaDeserializer {
             throw new IllegalArgumentException("Section " + ENCHANTS + " is not a section");
 
         for (String enchString : section.getConfigurationSection(ENCHANTS).getKeys(false)) {
-            Enchantment enchantment = Arrays
-                    .stream(Enchantment.values())
-                    .filter(enchantment1 -> enchantment1.getKey().getKey().equalsIgnoreCase(enchString))
-                    .findFirst()
-                    .orElseThrow(() -> new IllegalArgumentException("Enchant " + enchString + " not found"));
-
+            Enchantment enchantment = Enchantment.getByName(enchString.toUpperCase());
+            if(enchantment == null)
+                new IllegalArgumentException("Enchant " + enchString + " not found");
             if(!section.isInt(ENCHANTS + "." + enchString))
                 throw new IllegalArgumentException("Level for enchant " + enchString + " is not a integer");
 
