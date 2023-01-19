@@ -14,12 +14,8 @@ import static com.lairon.plugins.xitemstackutils.sd.ItemStackSections.*;
 public class ItemStackDeserializer {
 
     private static Set<ItemMetaDeserializer> itemMetaDeserializers = new HashSet<>(){{
-        add(new NameDeserializer());
-        add(new LoreDeserializer());
-        add(new EnchantsDeserializer());
-        add(new FlagDeserializer());
-        add(new CustomModelDataDeserializer());
-        add(new UnbreakableDeserializer());
+        add(new DefaultMetaDeserializer());
+        add(new PotionMetaDeserializer());
     }};
 
     @NonNull
