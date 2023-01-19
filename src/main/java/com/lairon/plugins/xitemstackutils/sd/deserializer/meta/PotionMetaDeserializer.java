@@ -46,6 +46,7 @@ public class PotionMetaDeserializer implements ItemMetaDeserializer {
 
         deserializePotionEffects(potionMeta, potionMetaSection);
         deserializeRGBColor(potionMeta, potionMetaSection);
+        deserializeColor(potionMeta, potionMetaSection);
 
         stack.setItemMeta(potionMeta);
     }
@@ -59,11 +60,11 @@ public class PotionMetaDeserializer implements ItemMetaDeserializer {
             potionMeta.addCustomEffect(
                     new PotionEffect(
                             effectType,
-                            section.getInt(key + ".Duration", 0),
-                            section.getInt(key + ".Amplifier", 0),
-                            section.getBoolean(key + ".Ambient", true),
-                            section.getBoolean(key + ".Particles", true),
-                            section.getBoolean(key + ".Icon", true)
+                            section.getInt(POTION_EFFECTS + key + ".Duration", 0),
+                            section.getInt(POTION_EFFECTS + key + ".Amplifier", 0),
+                            section.getBoolean(POTION_EFFECTS + key + ".Ambient", true),
+                            section.getBoolean(POTION_EFFECTS + key + ".Particles", true),
+                            section.getBoolean(POTION_EFFECTS + key + ".Icon", true)
                     ),
                     true
             );
@@ -72,7 +73,7 @@ public class PotionMetaDeserializer implements ItemMetaDeserializer {
 
     private void deserializeRGBColor(@NonNull PotionMeta potionMeta, @NonNull ConfigurationSection section) {
         if (!section.contains(RGB_COLOR)) return;
-        String rgbColor = section.getString("RGB_COLOR");
+        String rgbColor = section.getString(RGB_COLOR);
         String[] split = rgbColor.split(";");
         if(split.length != 3)
             throw new IllegalArgumentException(rgbColor + " is invalid RGB format. Use RRR;GGG;BBB. Use only integers");

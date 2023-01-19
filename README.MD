@@ -19,7 +19,7 @@
         <dependency>
             <groupId>com.lairon.plugins</groupId>
             <artifactId>0xItemStackUtils</artifactId>
-            <version>1.6.1-SNAPSHOT</version>
+            <version>1.6.2-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
 ```
