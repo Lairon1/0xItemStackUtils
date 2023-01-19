@@ -16,6 +16,7 @@ public class ItemStackDeserializer {
     private static Set<ItemMetaDeserializer> itemMetaDeserializers = new HashSet<>(){{
         add(new DefaultMetaDeserializer());
         add(new PotionMetaDeserializer());
+        add(new SkullMetaDeserializer());
     }};
 
     @NonNull

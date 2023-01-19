@@ -3,12 +3,12 @@ package com.lairon.plugins.xitemstackutils.sd.deserializer.meta;
 import com.lairon.plugins.xitemstackutils.ItemStackUtils;
 import com.lairon.plugins.xitemstackutils.sd.deserializer.ItemMetaDeserializer;
 import lombok.NonNull;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Arrays;
 
 import static com.lairon.plugins.xitemstackutils.sd.ItemStackSections.*;
 
