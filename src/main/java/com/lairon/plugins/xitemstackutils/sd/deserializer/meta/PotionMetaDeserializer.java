@@ -60,11 +60,11 @@ public class PotionMetaDeserializer implements ItemMetaDeserializer {
             potionMeta.addCustomEffect(
                     new PotionEffect(
                             effectType,
-                            section.getInt(POTION_EFFECTS + key + ".Duration", 0),
-                            section.getInt(POTION_EFFECTS + key + ".Amplifier", 0),
-                            section.getBoolean(POTION_EFFECTS + key + ".Ambient", true),
-                            section.getBoolean(POTION_EFFECTS + key + ".Particles", true),
-                            section.getBoolean(POTION_EFFECTS + key + ".Icon", true)
+                            section.getInt(POTION_EFFECTS + "." + key + ".Duration", 0),
+                            section.getInt(POTION_EFFECTS + "." + key + ".Amplifier", 0),
+                            section.getBoolean(POTION_EFFECTS + "." + key + ".Ambient", true),
+                            section.getBoolean(POTION_EFFECTS + "." + key + ".Particles", true),
+                            section.getBoolean(POTION_EFFECTS + "." + key + ".Icon", true)
                     ),
                     true
             );
